@@ -7,19 +7,19 @@ import {coreModule, JsonExplorer} from 'app/core/core';
 const template = `
 <collapse-box title="Query Troubleshooter" is-open="ctrl.isOpen" state-changed="ctrl.stateChanged()"
               ng-class="{'collapse-box--error': ctrl.hasError}">
-  <collapse-box-actions>
-    <a class="pointer" ng-click="ctrl.toggleExpand()" ng-hide="ctrl.allNodesExpanded">
-      <i class="fa fa-plus-square-o"></i> Expand All
-    </a>
-    <a class="pointer" ng-click="ctrl.toggleExpand()" ng-show="ctrl.allNodesExpanded">
-      <i class="fa fa-minus-square-o"></i> Collapse All
-    </a>
-    <a class="pointer" clipboard-button="ctrl.getClipboardText()"><i class="fa fa-clipboard"></i> Copy to Clipboard</a>
-  </collapse-box-actions>
-  <collapse-box-body>
-    <i class="fa fa-spinner fa-spin" ng-show="ctrl.isLoading"></i>
-    <div class="query-troubleshooter-json"></div>
-  </collapse-box-body>
+    <collapse-box-actions>
+      <a class="pointer" ng-click="ctrl.toggleExpand()" ng-hide="ctrl.allNodesExpanded">
+        <i class="fa fa-plus-square-o"></i> Expand All
+      </a>
+      <a class="pointer" ng-click="ctrl.toggleExpand()" ng-show="ctrl.allNodesExpanded">
+        <i class="fa fa-minus-square-o"></i> Collapse All
+      </a>
+      <a class="pointer" clipboard-button="ctrl.getClipboardText()"><i class="fa fa-clipboard"></i> Copy to Clipboard</a>
+    </collapse-box-actions>
+    <collapse-box-body>
+      <i class="fa fa-spinner fa-spin" ng-show="ctrl.isLoading"></i>
+      <div class="query-troubleshooter-json"></div>
+    </collapse-box-body>
 </collapse-box>
 `;
 
