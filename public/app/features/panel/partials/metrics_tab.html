@@ -25,28 +25,35 @@
 	</div>
 </div>
 
-<query-troubleshooter panel-ctrl="ctrl.panelCtrl"></query-troubleshooter>
+<div class="metrics_tab_flex_container">
+	
+	<div class="metrics_tab_flex_container--item-1">
+		<collapse-box title="Data Source: {{ctrl.dsSegment.value}}">
+			<collapse-box-body>
 
-<collapse-box title="Data Source: {{ctrl.dsSegment.value}}">
-	<collapse-box-body>
-
-		<div class="gf-form-group">
-			<div class="gf-form-inline">
-				<div class="gf-form">
-					<label class="gf-form-label">
-						Panel Data Source
-					</label>
-					<metric-segment segment="ctrl.dsSegment" get-options="ctrl.getOptions(true)" on-change="ctrl.datasourceChanged()"></metric-segment>
+				<div class="gf-form-group">
+					<div class="gf-form-inline">
+						<div class="gf-form">
+							<label class="gf-form-label">
+								Panel Data Source
+							</label>
+							<metric-segment segment="ctrl.dsSegment" get-options="ctrl.getOptions(true)" on-change="ctrl.datasourceChanged()"></metric-segment>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
 
-		<rebuild-on-change property="ctrl.panel.datasource" show-null="true">
-			<plugin-component type="query-options-ctrl">
-			</plugin-component>
-		</rebuild-on-change>
+				<rebuild-on-change property="ctrl.panel.datasource" show-null="true">
+					<plugin-component type="query-options-ctrl">
+					</plugin-component>
+				</rebuild-on-change>
 
-	</collapse-box-body>
-</collapse-box>
+			</collapse-box-body>
+		</collapse-box>
+	</div>
 
+	<div class="metrics_tab_flex_container--item-2">
+		<query-troubleshooter panel-ctrl="ctrl.panelCtrl"></query-troubleshooter>
+	</div>
+
+</div>
 <div class="clearfix"></div>

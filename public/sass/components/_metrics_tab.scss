@@ -1,0 +1,19 @@
+.metrics_tab_flex_container {
+  display: block;
+  @include media-breakpoint-up(lg) {
+    display: flex;
+  }
+
+  &--item-1 {
+    flex-grow: 1;
+    @include media-breakpoint-up(md) {
+      flex-basis: 720px;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+  }
+
+  &--item-2 {
+    flex-grow: 3;
+  }
+}
