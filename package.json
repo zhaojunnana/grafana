@@ -71,13 +71,14 @@
     "karma-sinon": "^1.0.5",
     "lodash": "^4.17.2",
     "mousetrap": "^1.6.0",
+    "preact": "^8.2.1",
     "remarkable": "^1.7.1",
     "sinon": "1.17.6",
     "systemjs-builder": "^0.15.34",
     "tether": "^1.4.0",
     "tether-drop": "https://github.com/torkelo/drop",
     "tslint": "^5.1.0",
-    "typescript": "^2.2.2",
+    "typescript": "next",
     "virtual-scroll": "^1.1.1"
   }
 }

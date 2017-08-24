@@ -49,6 +49,7 @@ import {helpModal} from './components/help/help';
 import {collapseBox} from './components/collapse_box';
 import {JsonExplorer} from './components/json_explorer/json_explorer';
 import {NavModelSrv, NavModel} from './nav_model_srv';
+import {PreactDropdown} from './components/preact-dropdown';
 
 
 export {
@@ -78,4 +79,5 @@ export {
   JsonExplorer,
   NavModelSrv,
   NavModel,
+  PreactDropdown,
 };

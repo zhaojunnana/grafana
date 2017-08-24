@@ -34,9 +34,9 @@ module.exports = function(config) {
         'remarkable/dist/*',
         'virtual-scroll/**/*',
         'mousetrap/**/*',
+        'preact/dist/*.js',
       ],
       dest: '<%= srcDir %>/vendor/npm'
     }
-
   };
 };

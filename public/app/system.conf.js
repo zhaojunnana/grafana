@@ -33,6 +33,7 @@ System.config({
     "jquery.flot.gauge": "vendor/flot/jquery.flot.gauge",
     "d3": "vendor/d3/d3.js",
     "jquery.flot.dashes": "vendor/flot/jquery.flot.dashes",
+    "preact": "vendor/npm/preact/dist/preact.js",
   },
 
   packages: {
@@ -59,6 +60,9 @@ System.config({
     'vendor/npm/virtual-scroll/src/indx.js': {
       format: 'cjs',
       exports: 'VirtualScroll',
+    },
+    'vendor/npm/preact/dist/preact.js': {
+      format: 'cjs',
     },
     'vendor/angular/angular.js': {
       format: 'global',

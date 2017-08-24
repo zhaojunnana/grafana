@@ -72,3 +72,11 @@ declare module 'd3' {
   var d3: any;
   export default d3;
 }
+
+declare module 'preact' {
+  class Component {
+  }
+  var h: any;
+  var render: any;
+  export {h, render, Component};
+}

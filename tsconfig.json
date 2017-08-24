@@ -14,10 +14,13 @@
         "noImplicitThis":false,
         "noImplicitUseStrict":false,
         "noUnusedLocals":false,
-        "moduleResolution": "classic"
+        "moduleResolution": "classic",
+        "jsx": "react",
+        "jsxFactory": "h"
     },
     "include": [
         "public/app/**/*.ts",
+        "public/app/**/*.tsx",
         "public/test/**/*.ts"
     ],
     "exclude": [
