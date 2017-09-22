@@ -48,9 +48,9 @@ module.exports = function(config) {
         'angular-bindonce/bindonce.js',
         'angular-native-dragdrop/draganddrop.js',
         'clipboard/dist/clipboard.js',
+        'react-test-renderer/**/*.js',
       ],
       dest: '<%= srcDir %>/vendor/npm'
     }
-
   };
 };

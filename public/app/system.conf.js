@@ -1,5 +1,6 @@
 System.config({
-  defaultJSExtenions: true,
+  defaultExtenions: 'js',
+  defaultJSExtensions: true,
   baseURL: 'public',
   paths: {
     'react': 'vendor/npm/react/dist/react.js',
@@ -36,8 +37,12 @@ System.config({
     "d3": "vendor/d3/d3.js",
     "jquery.flot.dashes": "vendor/flot/jquery.flot.dashes",
     "ace": "vendor/npm/ace-builds/src-noconflict/ace",
-    "clipboard": "vendor/npm/clipboard/dist/clipboard.js"
+    "clipboard": "vendor/npm/clipboard/dist/clipboard.js",
+    "app/": "app/",
+    '*': './public/node_modules/*',
   },
+
+  packageConfigPaths: ['./public/node_modules/*/package.json'],
 
   packages: {
     app: {
@@ -52,6 +57,9 @@ System.config({
     test: {
       defaultExtension: 'js',
     },
+    "ace-builds": {
+      main: "src/ace.js"
+    }
   },
 
   map: {

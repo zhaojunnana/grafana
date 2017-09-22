@@ -13,9 +13,19 @@
     "@types/cheerio" "*"
     "@types/react" "*"
 
+"@types/lodash@^4.14.74":
+  version "4.14.74"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.74.tgz#ac3bd8db988e7f7038e5d22bd76a7ba13f876168"
+
 "@types/react-dom@^15.5.4":
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-15.5.4.tgz#3f75ba86a2ce9a7d1d9e7d1ee3f186f3a9652d8f"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-test-renderer@^15.5.4":
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-15.5.4.tgz#1f579bc615231f3cc3f1b0a25b88940d4c85f925"
   dependencies:
     "@types/react" "*"
 

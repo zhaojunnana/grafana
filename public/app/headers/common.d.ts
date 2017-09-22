@@ -67,7 +67,7 @@ declare module 'd3' {
   export default d3;
 }
 
-declare module 'ace' {
+declare module 'ace-builds' {
   var ace: any;
   export default ace;
 }

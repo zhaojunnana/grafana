@@ -30,7 +30,7 @@
 import _ from 'lodash';
 import coreModule from 'app/core/core_module';
 import config from 'app/core/config';
-import ace from 'ace';
+import ace from 'ace-builds';
 
 const ACE_SRC_BASE = "public/vendor/npm/ace-builds/src-noconflict/";
 const DEFAULT_THEME_DARK = "grafana-dark";

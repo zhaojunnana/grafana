@@ -45,8 +45,12 @@
       "d3": "vendor/d3/d3.js",
       "jquery.flot.dashes": "vendor/flot/jquery.flot.dashes",
       "ace": "vendor/npm/ace-builds/src-noconflict/ace",
-      "clipboard": "vendor/npm/clipboard/dist/clipboard.js"
+      "clipboard": "vendor/npm/clipboard/dist/clipboard.js",
+      "app/": "app/",
+      '*': './node_modules/*',
     },
+
+    packageConfigPaths: ['./node_modules/*/package.json'],
 
     packages: {
       app: {
