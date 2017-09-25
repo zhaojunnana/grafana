@@ -36,7 +36,6 @@ System.config({
     "jquery.flot.gauge": "vendor/flot/jquery.flot.gauge",
     "d3": "vendor/d3/d3.js",
     "jquery.flot.dashes": "vendor/flot/jquery.flot.dashes",
-    "ace": "vendor/npm/ace-builds/src-noconflict/ace",
     "clipboard": "vendor/npm/clipboard/dist/clipboard.js",
     "app/": "app/",
     '*': './public/node_modules/*',
@@ -57,8 +56,15 @@ System.config({
     test: {
       defaultExtension: 'js',
     },
-    "ace-builds": {
-      main: "src/ace.js"
+    'ace-builds': {
+      format: 'global',
+      main: "src-noconflict/ace.js",
+      exports: 'ace'
+    },
+    'angular': {
+      format: 'global',
+      deps: ['jquery'],
+      exports: 'angular',
     }
   },
 
@@ -72,11 +78,6 @@ System.config({
       format: 'cjs',
       exports: 'VirtualScroll',
     },
-    'vendor/npm/angular/angular.js': {
-      format: 'global',
-      deps: ['jquery'],
-      exports: 'angular',
-    },
     'vendor/npm/eventemitter3/index.js': {
       format: 'cjs',
       exports: 'EventEmitter'
@@ -85,9 +86,5 @@ System.config({
       format: 'global',
       exports: 'Mousetrap'
     },
-    'vendor/npm/ace-builds/src-noconflict/ace.js': {
-      format: 'global',
-      exports: 'ace'
-    }
   }
 });

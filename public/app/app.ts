@@ -1,5 +1,12 @@
 ///<reference path="headers/common.d.ts" />
 
+import angular from 'angular';
+import $ from 'jquery';
+import config from 'app/core/config';
+import _ from 'lodash';
+import moment from 'moment';
+import {coreModule} from './core/core';
+
 import 'bootstrap';
 import 'file-saver';
 import 'lodash-src';
@@ -12,13 +19,6 @@ import 'angular-ui';
 import 'react';
 import 'react-dom';
 import 'ngreact';
-
-import $ from 'jquery';
-import angular from 'angular';
-import config from 'app/core/config';
-import _ from 'lodash';
-import moment from 'moment';
-import {coreModule} from './core/core';
 
 export class GrafanaApp {
   registerFunctions: any;
