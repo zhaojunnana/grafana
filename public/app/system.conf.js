@@ -15,10 +15,7 @@ System.config({
     "jquery": "vendor/npm/jquery/dist/jquery.js",
     'lodash-src': 'vendor/npm/lodash/lodash.js',
     "lodash": 'app/core/lodash_extended.js',
-    "angular": "vendor/npm/angular/angular.js",
     "bootstrap": "vendor/bootstrap/bootstrap.js",
-    'angular-route':          'vendor/npm/angular-route/angular-route.js',
-    'angular-sanitize':       'vendor/npm/angular-sanitize/angular-sanitize.js',
     "angular-ui":             "vendor/angular-ui/ui-bootstrap-tpls.js",
     "angular-strap":          "vendor/angular-other/angular-strap.js",
     "angular-dragdrop":       "vendor/npm/angular-native-dragdrop/draganddrop.js",
@@ -62,6 +59,7 @@ System.config({
       exports: 'ace'
     },
     'angular': {
+      main: 'angular.js',
       format: 'global',
       deps: ['jquery'],
       exports: 'angular',
@@ -74,10 +72,6 @@ System.config({
   },
 
   meta: {
-    'vendor/npm/virtual-scroll/src/indx.js': {
-      format: 'cjs',
-      exports: 'VirtualScroll',
-    },
     'vendor/npm/eventemitter3/index.js': {
       format: 'cjs',
       exports: 'EventEmitter'
