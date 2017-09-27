@@ -3,6 +3,9 @@
 
   // Tun on full stack traces in errors to help debugging
   Error.stackTraceLimit=Infinity;
+  window.process = {
+    env: 'TEST'
+  };
 
   window.__karma__.loaded = function() {};
 
@@ -67,6 +70,9 @@
         deps: ['jquery'],
         exports: 'angular',
       },
+      'object-assign': {
+        main: 'index'
+      }
     },
 
     map: {
