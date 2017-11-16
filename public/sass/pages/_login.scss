@@ -6,6 +6,8 @@
   margin-left: 0;
   margin-top: -26px; /* BAD HACK - experiement to see how it looks */
   padding-top: $spacer * 5; /* BAD HACK - experiement to see how it looks */
+  position: relative;
+  z-index: 1;
 }
 
 .login-form {
@@ -200,4 +202,14 @@
       font-size: 3rem;
     }
   }
+}
+
+.svg-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
 }

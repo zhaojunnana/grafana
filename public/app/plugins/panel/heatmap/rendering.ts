@@ -392,6 +392,7 @@ export default function link(scope, elem, attrs, ctrl) {
     opacityScale = getOpacityScale(panel.color, maxValue);
     setCardSize();
 
+    console.log(cardsData);
     let cards = heatmap.selectAll(".heatmap-card").data(cardsData);
     cards.append("title");
     cards = cards.enter().append("rect")
