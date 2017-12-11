@@ -1,5 +1,6 @@
 import { coreModule, appEvents, contextSrv } from 'app/core/core';
 import { DashboardModel } from '../dashboard_model';
+import angular from 'angular';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -83,7 +84,11 @@ export class SettingsCtrl {
     this.viewId = this.$location.search().editview;
 
     if (this.viewId) {
-      this.json = JSON.stringify(this.dashboard.getSaveModelClone(), null, 2);
+      this.json = angular.toJson(this.dashboard.getSaveModelClone(), true);
+    }
+
+    if (this.viewId === 'save_as') {
+      this.dashboardSrv.showSaveAsModal();
     }
   }
 

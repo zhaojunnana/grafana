@@ -146,6 +146,10 @@
   &--primary {
     @include buttonBackground($btn-secondary-bg, $btn-secondary-bg-hl);
   }
+
+  &--success {
+    @include buttonBackground($btn-success-bg, $btn-success-bg-hl);
+  }
 }
 
 @include media-breakpoint-up(sm) {
