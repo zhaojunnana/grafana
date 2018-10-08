@@ -68,6 +68,7 @@ func setIndexViewData(c *m.ReqContext) (*dtos.IndexViewData, error) {
 			IsGrafanaAdmin:             c.IsGrafanaAdmin,
 			LightTheme:                 prefs.Theme == lightName,
 			Timezone:                   prefs.Timezone,
+			MonthDayFormat:             prefs.MonthDayFormat,
 			Locale:                     locale,
 			HelpFlags1:                 c.HelpFlags1,
 			HasEditPermissionInFolders: hasEditPermissionInFoldersQuery.Result,
