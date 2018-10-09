@@ -10,6 +10,7 @@ import TimeSeries from 'app/core/time_series2';
 import { parse as parseDate } from 'app/core/utils/datemath';
 import { DEFAULT_RANGE } from 'app/core/utils/explore';
 
+import Start from './PromStart';
 import ElapsedTime from './ElapsedTime';
 import QueryRows from './QueryRows';
 import Graph from './Graph';
@@ -286,6 +287,13 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
     this.setState(state => ({ showingLogs: !state.showingLogs }));
   };
 
+  // Use this in help pages to set page to a single query
+  onClickQuery = query => {
+    const nextQueries = [{ query, key: generateQueryKey() }];
+    this.queryExpressions = nextQueries.map(q => q.query);
+    this.setState({ queries: nextQueries }, this.onSubmit);
+  };
+
   onClickSplit = () => {
     const { onChangeSplit } = this.props;
     if (onChangeSplit) {
@@ -520,6 +528,7 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
     const tableButtonActive = showingBoth || showingTable ? 'active' : '';
     const exploreClass = split ? 'explore explore-split' : 'explore';
     const selectedDatasource = datasource ? datasource.name : undefined;
+    const hasResults = graphResult || logsResult || tableResult;
 
     return (
       <div className={exploreClass} ref={this.getRef}>
@@ -598,25 +607,27 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
               onRemoveQueryRow={this.onRemoveQueryRow}
               supportsLogs={supportsLogs}
             />
-            <div className="result-options">
-              {supportsGraph ? (
-                <button className={`btn toggle-btn ${graphButtonActive}`} onClick={this.onClickGraphButton}>
-                  Graph
-                </button>
-              ) : null}
-              {supportsTable ? (
-                <button className={`btn toggle-btn ${tableButtonActive}`} onClick={this.onClickTableButton}>
-                  Table
-                </button>
-              ) : null}
-              {supportsLogs ? (
-                <button className={`btn toggle-btn ${logsButtonActive}`} onClick={this.onClickLogsButton}>
-                  Logs
-                </button>
-              ) : null}
-            </div>
-
             <main className="m-t-2">
+              {!hasResults && <Start request={this.request} onClickQuery={this.onClickQuery} />}
+
+              <div className="result-options">
+                {supportsGraph ? (
+                  <button className={`btn toggle-btn ${graphButtonActive}`} onClick={this.onClickGraphButton}>
+                    Graph
+                  </button>
+                ) : null}
+                {supportsTable ? (
+                  <button className={`btn toggle-btn ${tableButtonActive}`} onClick={this.onClickTableButton}>
+                    Table
+                  </button>
+                ) : null}
+                {supportsLogs ? (
+                  <button className={`btn toggle-btn ${logsButtonActive}`} onClick={this.onClickLogsButton}>
+                    Logs
+                  </button>
+                ) : null}
+              </div>
+
               {supportsGraph &&
                 showingGraph &&
                 graphResult && (
