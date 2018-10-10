@@ -6,7 +6,6 @@ export default class StackdriverDatasource {
   url: string;
   baseUrl: string;
   projectName: string;
-  queryPromise: Promise<any>;
 
   /** @ngInject */
   constructor(instanceSettings, private backendSrv, private templateSrv, private timeSrv) {
@@ -14,6 +13,7 @@ export default class StackdriverDatasource {
     this.url = instanceSettings.url;
     this.doRequest = this.doRequest;
     this.id = instanceSettings.id;
+    instanceSettings.jsonData.defaultProject = undefined;
     this.projectName = instanceSettings.jsonData.defaultProject || '';
   }
 
@@ -100,31 +100,27 @@ export default class StackdriverDatasource {
   }
 
   async query(options) {
-    this.queryPromise = new Promise(async resolve => {
-      const result = [];
-      const data = await this.getTimeSeries(options);
-      if (data.results) {
-        Object['values'](data.results).forEach(queryRes => {
-          if (!queryRes.series) {
-            return;
-          }
-          this.projectName = queryRes.meta.defaultProject;
-          const unit = this.resolvePanelUnitFromTargets(options.targets);
-          queryRes.series.forEach(series => {
-            result.push({
-              target: series.name,
-              datapoints: series.points,
-              refId: queryRes.refId,
-              meta: queryRes.meta,
-              unit,
-            });
+    const result = [];
+    const data = await this.getTimeSeries(options);
+    if (data.results) {
+      Object['values'](data.results).forEach(queryRes => {
+        if (!queryRes.series) {
+          return;
+        }
+        const unit = this.resolvePanelUnitFromTargets(options.targets);
+        queryRes.series.forEach(series => {
+          result.push({
+            target: series.name,
+            datapoints: series.points,
+            refId: queryRes.refId,
+            meta: queryRes.meta,
+            unit,
           });
         });
-      }
+      });
+    }
 
-      resolve({ data: result });
-    });
-    return this.queryPromise;
+    return { data: result };
   }
 
   async annotationQuery(options) {
@@ -218,8 +214,25 @@ export default class StackdriverDatasource {
 
   async getDefaultProject() {
     try {
-      await this.queryPromise;
-      return this.projectName;
+      if (!this.projectName) {
+        const { data } = await this.backendSrv.datasourceRequest({
+          url: '/api/tsdb/query',
+          method: 'POST',
+          data: {
+            queries: [
+              {
+                refId: 'defaultProject',
+                type: 'defaultProject',
+                datasourceId: this.id,
+              },
+            ],
+          },
+        });
+        this.projectName = data.results.defaultProject.meta.defaultProject;
+        return this.projectName;
+      } else {
+        return this.projectName;
+      }
     } catch (error) {
       let message = 'Projects cannot be fetched: ';
       message += error.statusText ? error.statusText + ': ' : '';
