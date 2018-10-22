@@ -8,23 +8,23 @@
       <div class="login-inner-box" id="login-view">
         <form name="loginForm" class="login-form-group gf-form-group" ng-hide="disableLoginForm">
           <div class="login-form">
-            <input type="text" name="username" class="gf-form-input login-form-input" required ng-model='formModel.user' placeholder={{loginHint}}
-              autofocus>
+            <input type="text" name="username" class="gf-form-input login-form-input" required ng-model='formModel.user' placeholder="用户名"
+                   autofocus>
           </div>
           <div class="login-form">
             <input type="password" name="password" class="gf-form-input login-form-input" required ng-model="formModel.password" id="inputPassword"
-              placeholder="password">
+              placeholder="密码">
           </div>
           <div class="login-button-group">
             <button type="submit" class="btn btn-large p-x-2" ng-if="!loggingIn" ng-click="submit();" ng-class="{'btn-inverse': !loginForm.$valid, 'btn-primary': loginForm.$valid}">
               登录
             </button>
             <button type="submit" class="btn btn-large p-x-2 btn-inverse btn-loading" ng-if="loggingIn">
-              Logging In<span>.</span><span>.</span><span>.</span>
+              正在登录<span>.</span><span>.</span><span>.</span>
             </button>
             <div class="small login-button-forgot-password">
               <a href="user/password/send-reset-email">
-                Forgot your password?
+                忘记密码?
               </a>
             </div>
           </div>
@@ -80,27 +80,27 @@
       </div>
       <div class="login-inner-box remove hidden" id="change-password-view">
         <div class="text-left login-change-password-info">
-          <h5>Change Password</h5>
-          Before you can get started with awesome dashboards we need you to make your account more secure by changing your password.
-          <br />You can change your password again later.
+          <h5>更改密码</h5>
+          在您开始使用炫酷的仪表板之前，我们需要您通过更改初始密码来提高帐户的安全性。
+          <br />您可以稍后再次更改密码。
         </div>
         <form class="login-form-group gf-form-group">
           <div class="login-form">
             <input type="password" id="newPassword" name="newPassword" class="gf-form-input login-form-input" required ng-model='command.newPassword'
-              placeholder="New password">
+              placeholder="新密码">
           </div>
           <div class="login-form">
-            <input type="password" name="confirmNew" class="gf-form-input login-form-input" required ng-model="command.confirmNew" placeholder="Confirm new password">
+            <input type="password" name="confirmNew" class="gf-form-input login-form-input" required ng-model="command.confirmNew" placeholder="确认新密码">
           </div>
           <div class="login-button-group login-button-group--right text-right">
             <a class="btn btn-link" ng-click="skip();">
-              Skip
+              跳过
               <info-popover mode="no-padding">
-                If you skip you will be prompted to change password next time you login.
+                如果您跳过，将提示您在下次登录时更改密码。
               </info-popover>
             </a>
             <button type="submit" class="btn btn-large p-x-2" ng-click="changePassword();" ng-class="{'btn-inverse': !loginForm.$valid, 'btn-success': loginForm.$valid}">
-              Save
+              保存
             </button>
           </div>
         </form>
